@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset ="utf-8">
+    <meta name    ="viewport" content="width=device-width, initial-scale=1">
+    <link rel     ="shortcut icon" href="img/icono.png">
+    <link rel="stylesheet" href="css/servitec.min.css" />
+    <link rel="stylesheet" href="css/jquery.mobile.icons.min.css" />
+    <link rel="stylesheet" href="css/jquery.mobile.structure-1.4.5.min.css" />
+
+
+
+
+
+    <link rel     ="stylesheet" type="text/css" href="css/base.css">
+    <script type="text/javascript" src   ="cordova.js"></script>
+    <script type="text/javascript" src   ="js/jquery.min.js"></script>
+    <script type="text/javascript" src   ="js/jquery.mobile-1.4.5.js"></script>
+    <script type="text/javascript" src   ="http://maps.google.com/maps/api/js?sensor=true"></script>
+    <script type="text/javascript" src   ="js/gmaps.js"></script>
+    <script type="text/javascript" src   ="js/base.js"></script>
+    <title>SERVITEC&nbsp;beta</title>
+  </head>
+<body>
+<!--La precarga APP-->
+<div data-role="page" id="pagel">
+  <div role="main" class="ui-content" style="text-align: center">
+    <h3>SERVITEC</h3>
+    <img src="img/logo.png" width="180px"><br>
+    <h2>Cargando...</h2>
+    <img src="img/barra/barra10.png" id="loadin">
+  </div><!-- /content -->
+</div><!-- /pagel -->
+<!--La entrada el APP-->
+<div data-role="page" id="page0">
+  <div role="main" class="ui-content" style="text-align: center">
+    <h3>SERVITEC</h3>
+    <img src="img/logo.png" width="180px"><br>
+    <a href="#" class="ui-btn ui-btn-inline" id="boton" data-transition="flow">- - -</a>
+      <div id="logop" class="logop">
+      <img id="radar" src="img/rain/ra0.png">
+        <!-- Aqui hay mensajes del servior -->
+      </div>
+  </div><!-- /content -->
+  <div data-role="footer" data-position="fixed" id="footerp">
+    <!--Publicidad-->
+  </div><!-- /footer -->
+</div><!-- /page0 -->
+<!--Registrar el equipo-->
+<div data-role="page" id="page1">
+  <div data-role="header">
+    <a href="#page0" class="ui-btn ui-icon-home ui-btn-icon-notext ui-corner-all" id="home" data-transition="flow"></a>
+    <a href="#page13" class="ui-btn ui-icon-info ui-btn-icon-notext ui-corner-all" id="info" data-transition="flow"></a>
+    <h1>Setup</h1>
+  </div><!-- /header -->
+  <div role="main" class="ui-content" style="text-align: left">
+    <center><b>Datos del equipo</b></center>
+    <label id="server"></label>
+    <label id="folder"></label>
+    <label id="deso"></label>
+    <label id="dever"></label>
+    <label id="deuuid"></label>
+    <label id="user"></label>
+    <label id="pass"></label>
+    <label id="stado">Servidor</label>
+    <label id="listas" onclick="TraerList();">Datos</label>
+    <hr style="width: 100%">
+    <button class="ui-shadow ui-btn ui-corner-all ui-btn-icon-left ui-icon-eye" id="BtnLoad" onclick="CargarD();">LOAD</button>
+    <div id="datasetup">
+      <label for="txt_server">Ruta del servidor:</label>
+      <input type="text" name="txt_server" id="txt_server" value="" placeholder="www.servidor.com/">
+      <label for="txt_folder">Folder:</label>
+      <input type="text" name="txt_folder" id="txt_folder" value="" placeholder="Carpeta o ruta">
+      <label for="txt_user">Nombre del encargado:</label>
+      <input type="text" name="txt_user" id="txt_user" value="" placeholder="El Cami Joik">
+      <label for="txt_pass">Contraseña:</label>
+      <input type="password" name="txt_pass" id="txt_pass"  data-clear-btn="true" value="" autocomplete="off">
+    </div>
+    <button class="ui-shadow ui-btn ui-corner-all ui-btn-icon-left ui-icon-edit" id="BtnSaved" onclick="GuardarD();">SAVE</button>
+  </div><!-- /content -->
+</div><!-- /page1 -->
+<!--Mostrar uvicacion-->
+<div data-role="page" id="page2">
+  <div data-role="header">
+    <a href="#page0" class="ui-btn ui-icon-home ui-btn-icon-notext ui-corner-all" id="home" data-transition="flow"></a>
+    <a href="#page13" class="ui-btn ui-icon-info ui-btn-icon-notext ui-corner-all" id="info" data-transition="flow"></a>
+    <h1>Localizaci&oacute;n</h1>
+  </div><!-- /header -->
+  <div role="main" class="ui-content">
+    <img id="maploc" src="img/mapa.png">
+    <label id="fidel">-</label>
+    <div id="datap1u" style="text-align: center">
+      <a class="ui-btn ui-btn-inline" href="#page4" data-position="fixed">Historial</a>
+      <a class="ui-btn ui-btn-inline ui-icon-edit" href="#page3" data-position="fixed">Camara</a>
+    </div>
+  </div><!-- /content -->
+</div><!-- /page2 -->
+<!-- Captura del camara -->
+<div data-role="page" id="page3">
+  <div data-role="header">
+    <a href="#page0" class="ui-btn ui-icon-home ui-btn-icon-notext ui-corner-all" id="home" data-transition="flow"></a>
+    <a href="#page13" class="ui-btn ui-icon-info ui-btn-icon-notext ui-corner-all" id="info" data-transition="flow"></a>
+    <h1>Tomar la fotografia</h1>
+  </div><!-- /header -->
+  <div role="main" class="ui-content paladinoff">
+    <img id="imgCamara" src="img/camaraoff.png" width="380px" height="400px">
+    <div style="text-align: center">
+      <a href="#page2" class="ui-btn ui-btn-inline btncam btncleft" id="btncleft"><img src="css/images/icons-png/delete-black.png">&nbsp;Regresar</a>
+      <a href="#" class="ui-btn ui-btn-inline btncam" id="btnccenter" onclick="ObtFoto();"><img src="css/images/icons-png/camera-black.png">&nbsp;Camara</a>
+      <a href="#page5" class="ui-btn ui-btn-inline btncam btncright" id="btncright"><img src="css/images/icons-png/check-black.png">&nbsp;Detalles</a>
+    </div>
+  </div><!-- /content -->
+</div><!-- /page3 -->
+<!-- Historial de fotos -->
+<div data-role="page" id="page4">
+  <div data-role="header">
+    <a href="#page0" class="ui-btn ui-icon-home ui-btn-icon-notext ui-corner-all" id="home" data-transition="flow"></a>
+    <a href="#page1" class="ui-btn ui-icon-info ui-btn-icon-notext ui-corner-all" id="info" data-transition="flow"></a>
+    <h1>Historial...</h1>
+  </div><!-- /header -->
+  <div role="main" class="ui-content">
+    <center style="background-color: #FFFFFF">
+    <img src="img/page4.png" style="text-align: center">
+    <p>Lamento que estés aquí pero esta sección esta en construcción </p>
+    <a href="#page2" class="ui-btn ui-btn-inline"><img src="css/images/icons-png/delete-black.png">&nbsp;Regresar</a>
+    </center>
+  </div><!-- /content -->
+</div><!-- /page4 -->
+<!-- Datos del adicionales -->
+<div data-role="page" id="page5">
+  <div data-role="header">
+    <a href="#page0" class="ui-btn ui-icon-home ui-btn-icon-notext ui-corner-all" id="home" data-transition="flow"></a>
+    <a href="#page13" class="ui-btn ui-icon-info ui-btn-icon-notext ui-corner-all" id="info" data-transition="flow"></a>
+    <h1>Datos de la muestra</h1>
+  </div><!-- /header -->
+  <div role="main" class="ui-content">
+    <div id="valoracion">
+    selecionar imagen
+    </div>
+<!-- Tablero -->
+    <select name="sl-tablero" id="sl-tablero">
+      <option value="0">Tablero ?</option>
+    </select>
+<!-- Pedestal -->
+    <select name="sl-pedestal" id="sl-pedestal">
+      <option value="p">Pedestal ?</option>
+    </select>
+<!-- Base -->
+    <select name="sl-anclaje" id="sl-anclaje">
+      <option value="a">Anclaje </option>
+    </select>
+<!-- Visible -->
+    <select name="sl-vision" id="sl-vision">
+      <option value="v">Visible </option>
+    </select>
+<!-- Accion -->
+  <select name="sl-accion" id="sl-accion">
+    <option value="at">Accion a Tomar</option>
+  </select>
+<!-- Observaciones -->
+  <label for="txt-obser">Observaciones:</label>
+  <input type="text" name="txt-obser" id="txt-obser" value="" placeholder="Detalles adicionales de la señal">
+<!-- Botones -->
+  <a href="#page0" class="ui-btn ui-btn-inline btncam btncleft"><img src="css/images/icons-png/check-black.png">&nbsp;Cancelar</a>
+  <a href="#" class="ui-btn ui-btn-inline btncam btncright" onclick="EnviaDATA();"><img src="css/images/icons-png/check-black.png">&nbsp;Enviar</a>
+  </div><!-- /content -->
+</div><!-- /page5 -->
+</body>
+</html>
