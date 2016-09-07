@@ -1,0 +1,22 @@
+/*Forma al boton*/
+.btninfo{
+  text-align:center;
+  border:solid 3px #336699;
+  border-radius:4px;
+  display:block;
+  opacity:0.8;
+  box-shadow:2px 2px 10px #333;
+  line-height:25px;
+  display:block;
+  padding:0 4px;
+}
+.servninfo{
+  float: left;
+}
+.datainfo{
+    float: right;
+}
+.espera{
+  color:#1FFF0F;
+  background:#4477aa;
+}
