@@ -9,7 +9,8 @@ var ServerData;
 var at;
 var distan;
 var GPSOpt = {maximumAge: 3000, timeout: 5000, enableHighAccuracy: true };
-var CameraOpt = {EncodingType: 1, quality: 100, allowEdit: false }
+var CameraOpt = {quality: 100, allowEdit: false };
+//var CameraOpt = {EncodingType: 1, quality: 100, allowEdit: false }
 //=========================== V A R I A B L E S DATA ===========================
 var SO_Device="Android Virtual";       //Mientras la beta
 var Ver_Device="4.0.0";                //Mientras la beta
@@ -18,8 +19,8 @@ var Latit='3.9913054';                 //Mientras la beta
 var Long='-73.7651035';                //Mientras la beta
 var Accur=1000;                        //Mientras la beta
 var Bruju=0;                           //Mientras la beta
-var Velocid=0;                            //Mientras la beta
-var fichero;
+var Velocid=0;                         //Mientras la beta
+var fichero;                           //Mientras la beta
 
 // ============================ S e c c i o n e s ==============================
 document.addEventListener("deviceready", IniciarAplicacion, false);

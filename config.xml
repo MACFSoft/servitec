@@ -1,5 +1,5 @@
-<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="com.macfsoft.servitec" version="1.1.0">
-  <name>SERVITEC</name>
+<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="com.macfsoft.servitec_b" version="1.1.0">
+  <name>SERVITEC M</name>
   <description>Recolecion de informacion</description>
   <author href="http://phonegap.com" email="support@phonegap.com">MACFSoft</author>
   <content src="index.html"/>
