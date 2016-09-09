@@ -20,3 +20,20 @@
   color:#1FFF0F;
   background:#4477aa;
 }
+
+.apagado{
+  color:#fff;
+  background:#AB261F;
+}
+.prendido{
+  color:#FFFFFF;
+  background:#43AB4F;
+}
+
+
+.paladinoff{
+  padding-bottom:0px;
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-top: 0px
+}
